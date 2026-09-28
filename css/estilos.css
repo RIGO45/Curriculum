@@ -1,0 +1,68 @@
+body {
+    margin: 20px;
+    background-color: gray;
+}
+
+.tarjeta {
+    text-align: center;
+    background-color: black;
+    color: white;
+    margin: 15px auto;
+    padding: 10px 20px;
+    width: fit-content;
+}
+
+.tarjeta img {
+    max-width: 100%;
+    min-width: 200px;
+    height: auto;
+}
+
+.tarjeta p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.tarjeta li {
+    text-align: left;
+    font-size: 18px;
+}
+
+.contacto {
+    border: 10px solid green;
+}
+
+.inicio {
+    border: 10px solid silver;
+}
+
+.perfil {
+    border: 10px solid yellow;
+}
+
+.formacion {
+    border: 10px solid blue;
+}
+
+.experiencia {
+    border: 10px solid red;
+}
+
+.habilidades {
+    border: 10px solid cyan;
+}
+
+.nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    border: 5px solid navy;
+}
+
+.btn {
+    text-align: center;
+}
