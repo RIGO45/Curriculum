@@ -1,6 +1,6 @@
 body {
     margin: 20px;
-    background-color: gray;
+    background-color: rgb(190, 190, 190);
 }
 
 .tarjeta {
@@ -33,7 +33,7 @@ body {
 }
 
 .inicio {
-    border: 10px solid silver;
+    border: 10px solid orange;
 }
 
 .perfil {
