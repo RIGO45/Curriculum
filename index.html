@@ -1,71 +1,165 @@
+<!--
+  ============================================================================
+  ARCHIVO: index.html   →   Página de INICIO del curriculum
+  ============================================================================
+
+  ¿Qué es un archivo HTML?
+  Es un archivo de texto que describe el CONTENIDO de una página web:
+  los títulos, párrafos, imágenes, enlaces, etc.
+  El "diseño" (colores, tamaños, espacios) NO está aquí: vive aparte,
+  en el archivo  css/estilos.css.
+
+  TRUCO PARA LEER HTML:
+  Casi todo funciona como una "caja" que se abre y se cierra:
+
+        <etiqueta>  contenido  </etiqueta>
+
+  Algunas etiquetas van solas y no se cierran (por ejemplo <img>).
+
+  Y algo importantísimo: puedes escribir COMENTARIOS como este bloque.
+  El navegador los IGNORA por completo; son notas para las personas
+  que leen el código. Un comentario de HTML se abre con "el signo menor que,
+  un signo de admiración y dos guiones", y se cierra con "dos guiones y el
+  signo mayor que". Así que estudia tranquilo: nada de lo que escribas
+  dentro de un comentario afecta a la página.
+  ============================================================================
+-->
+
+<!-- Le dice al navegador que este documento está escrito en HTML5 (la versión
+     más moderna). Debe ser SIEMPRE la primera línea del archivo. -->
 <!DOCTYPE html>
+
+<!-- lang="es" avisa que el idioma del contenido es español. Lo usan los
+     buscadores y los lectores de pantalla (programas que leen la web en voz
+     alta para personas ciegas). -->
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="stylesheet" href="css/estilos.css">
+     <!-- El <head> contiene información SOBRE la página (no se ve directamente).
+         Aquí van los datos que le explican al navegador cómo tratar el documento. -->
+
+     <!-- charset="UTF-8" permite usar acentos y la letra "ñ" (á, é, í, ó, ú, ñ).
+         Si quitas esta línea, verías símbolos raros como "Ã¡". -->
+     <meta charset="UTF-8">
+
+     <!-- viewport hace que la página se adapte al ancho de la pantalla del
+         teléfono o la tablet. Sin esta línea, en un celular se vería diminuto. -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- MEJORA: estas dos etiquetas <meta> no se ven, pero ayudan a que los
+         buscadores (Google) entiendan y muestren mejor la página.
+         "description" es el resumen que aparece bajo el título en los resultados. -->
+     <meta name="description"
+          content="Curriculum vitae de Rigoberto Benitez Aguilar, estudiante de Ingeniería en Sistemas Computacionales interesado en desarrollo de software y ciberseguridad.">
+     <meta name="author" content="Rigoberto Benitez Aguilar">
+
+     <!-- <title> es el texto que aparece en la PESTAÑA del navegador (no en la
+         página). MEJORA: ahora es más descriptivo que solo poner "Inicio". -->
+     <title>Inicio | Curriculum de Rigoberto Benitez Aguilar</title>
+
+     <!-- <link> conecta esta página con la hoja de estilos (el diseño).
+         href="css/estilos.css"  → "busca el archivo estilos.css dentro de la
+         carpeta css".  rel="stylesheet" → "esto es una hoja de estilos". -->
+     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
-    <header class="tarjeta inicio" id="inicio">
-        <h1>Bienvenido al inicio de mi curriculum</h1>
-    </header>
+     <!-- Aquí empieza TODO lo que el visitante ve en la pantalla. -->
 
-    <nav class="nav btn">
-        <h2>Menú de navegación externa</h2>
-        <a href="perfil.html">Perfil personal</a>
-        <a href="formacion.html">Formación académica</a>
-        <a href="experiencia.html">Experiencia o proyectos</a>
-        <a href="habilidades.html">Habilidades</a>
-        <a href="contacto.html">Contacto</a>
+     <!-- <header> = cabecera de la página (normalmente el título grande).
+         class="tarjeta inicio" son "etiquetas" para aplicar estilos desde el CSS.
+         id="inicio" es un nombre ÚNICO de esta sección; sirve para saltar aquí
+         con un enlace interno. -->
+     <header class="tarjeta inicio" id="inicio">
+          <!-- <h1> es el título MÁS importante. Se recomienda usar solo un <h1> por
+             página. Después habrá <h2>, <h3>... que son subtítulos. -->
+          <h1>Bienvenido al inicio de mi curriculum</h1>
+     </header>
 
-        <h2>Menú de navegación interna</h2>
-        <a href="#nombre">Nombre</a>
-        <a href="#fotografia">Fotografía</a>
-        <a href="#profesion">Profesión o área de interés</a>
-        <a href="#presentacion">Breve presentación</a>
-        <a href="#objetivo">Objetivo profesional</a>
-    </nav>
+     <!-- <nav> agrupa los enlaces de navegación (es decir, el "menú").
+         MEJORA: quitamos la clase "btn" porque no existía en el CSS (no hacía
+         nada) y añadimos aria-label, que describe el menú a los lectores de
+         pantalla. -->
+     <nav class="nav" aria-label="Menú de navegación del curriculum">
+          <h2>Menú de navegación externa</h2>
 
-    <main>
-        <div class="tarjeta inicio" id="nombre">
-            <h2>Nombre</h2>
-            <p>Rigoberto Benitez Aguilar</p>
-        </div>
+          <!-- <a> es un ENLACE (link).  href="perfil.html" lleva a OTRA página del
+             mismo sitio. (Lo que aparece entre las etiquetas es lo que se ve y
+             en lo que se hace clic). -->
+          <a href="perfil.html">Perfil personal</a>
+          <a href="formacion.html">Formación académica</a>
+          <a href="experiencia.html">Experiencia o proyectos</a>
+          <a href="habilidades.html">Habilidades</a>
+          <a href="contacto.html">Contacto</a>
 
-        <div class="tarjeta inicio" id="fotografia">
-            <h2>Fotografía</h2>
-            <img src="img/fotografia.jpg" alt="Foto de perfil"
-            width="400" align="center">
-        </div>
+          <h2>Menú de navegación interna</h2>
 
-        <div class="tarjeta inicio" id="profesion">
-            <h2>Profesión o área de interés</h2>
-            <p>Estudiante de Ingeniería en Sistemas Computacionales
-                con interés en el desarrollo de software y ciberseguridad.
-            </p>
-        </div>
+          <!-- Cuando el enlace empieza con "#" NO cambia de página: salta DENTRO de
+             la misma página hasta el elemento que tenga ese id. Por ejemplo,
+             href="#nombre" salta al <div id="nombre"> de más abajo. -->
+          <a href="#nombre">Nombre</a>
+          <a href="#fotografia">Fotografía</a>
+          <a href="#profesion">Profesión o área de interés</a>
+          <a href="#presentacion">Breve presentación</a>
+          <a href="#objetivo">Objetivo profesional</a>
+     </nav>
 
-        <div class="tarjeta inicio" id="presentacion">
-            <h2>Breve presentación</h2>
-            <p>Soy un estudiante apasionado por la tecnología y el desarrollo 
-                de software. Me especializo en programación y ciberseguridad, 
-                y siempre busco oportunidades para aprender y crecer en mi 
-                campo de interés.</p>
-        </div>
+     <!-- <main> guarda el contenido PRINCIPAL de la página (lo más importante). -->
+     <main>
 
-        <div class="tarjeta inicio" id="objetivo">
-            <h2>Objetivo profesional</h2>
-            <p>Mi objetivo profesional es convertirme en un desarrollador de 
-                software altamente competente y contribuir al desarrollo de 
-                soluciones innovadoras en el campo de la tecnología. 
-                Busco oportunidades para aplicar mis habilidades y conocimientos 
-                en proyectos desafiantes que me permitan crecer profesionalmente.
-            </p>
-        </div>
+          <!-- <div> es una "caja" genérica para agrupar cosas. Por sí sola no se
+             ve; su utilidad es agrupar para darle estilo desde el CSS. -->
+          <div class="tarjeta inicio" id="nombre">
+               <h2>Nombre</h2>
+               <!-- <p> es un PÁRRAFO de texto. -->
+               <p>Rigoberto Benitez Aguilar</p>
+          </div>
 
-        <footer class="nav btn">
-            <a href="#inicio">Volver al inicio</a>
-        </footer>
-    </main>
+          <div class="tarjeta inicio" id="fotografia">
+               <h2>Fotografía</h2>
+               <!-- <img> muestra una imagen y NO tiene etiqueta de cierre.
+                 src = de dónde sale el archivo de la imagen.
+                 alt = texto alternativo: se muestra si la imagen no carga y
+                       lo leen los lectores de pantalla (accesibilidad).
+                 MEJORA: quitamos el atributo align="center" porque está OBSOLETO
+                 (HTML5 ya no lo recomienda). Centrar la imagen ahora se hace con
+                 CSS, en la regla ".tarjeta img" del archivo estilos.css. -->
+               <img src="img/fotografia.jpg" alt="Foto de perfil de Rigoberto Benitez Aguilar" width="400">
+          </div>
+
+          <div class="tarjeta inicio" id="profesion">
+               <h2>Profesión o área de interés</h2>
+               <p>Estudiante de Ingeniería en Sistemas Computacionales
+                    con interés en el desarrollo de software y ciberseguridad.
+               </p>
+          </div>
+
+          <div class="tarjeta inicio" id="presentacion">
+               <h2>Breve presentación</h2>
+               <p>Soy un estudiante apasionado por la tecnología y el desarrollo
+                    de software. Me especializo en programación y ciberseguridad,
+                    y siempre busco oportunidades para aprender y crecer en mi
+                    campo de interés.</p>
+          </div>
+
+          <div class="tarjeta inicio" id="objetivo">
+               <h2>Objetivo profesional</h2>
+               <p>Mi objetivo profesional es convertirme en un desarrollador de
+                    software altamente competente y contribuir al desarrollo de
+                    soluciones innovadoras en el campo de la tecnología.
+                    Busco oportunidades para aplicar mis habilidades y conocimientos
+                    en proyectos desafiantes que me permitan crecer profesionalmente.
+               </p>
+          </div>
+     </main>
+
+     <!-- <footer> es el pie de página: información que va al final.
+         MEJORA: lo sacamos de <main>, porque <main> es solo para el contenido
+         principal; el pie va aparte. -->
+     <footer class="nav">
+          <!-- Enlace interno que nos devuelve al principio de la página. -->
+          <a href="#inicio">Volver al inicio</a>
+     </footer>
 </body>
+
+</html>

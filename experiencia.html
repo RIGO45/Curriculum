@@ -1,10 +1,35 @@
+<!--
+  ============================================================================
+  ARCHIVO: experiencia.html   →   Página "Experiencia y proyectos"
+  ============================================================================
+
+  Aquí cada curso o proyecto es una <section> con:
+     - su propio id (para poder saltar a él desde el menú),
+     - un <h2> con el nombre,
+     - un <article> que contiene una imagen (<img>) y una descripción (<p>).
+
+  MEJORAS aplicadas:
+     - Quitado el atributo obsoleto align="center" de las imágenes.
+     - Añadido loading="lazy": el navegador solo carga cada imagen cuando el
+       usuario se acerca a ella (la página abre más rápido).
+     - <main> para el contenido y <footer> fuera de <main>.
+     - Menú con aria-label y sin la clase "btn".
+  ============================================================================
+-->
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Experiencia y Proyectos</title>
+
+    <!-- MEJORA: resumen para buscadores. -->
+    <meta name="description" content="Cursos, certificados y proyectos de Rigoberto Benitez Aguilar en desarrollo con IA, ciberseguridad, inglés y más.">
+    <meta name="author" content="Rigoberto Benitez Aguilar">
+
+    <title>Experiencia y proyectos | Curriculum de Rigoberto Benitez Aguilar</title>
+
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -13,7 +38,7 @@
         <h1>Bienvenido a mi experiencia o proyectos de mi curriculum</h1>
     </header>
 
-    <nav class="nav btn">
+    <nav class="nav" aria-label="Menú de navegación del curriculum">
         <h2>Menú de navegación externa</h2>
         <a href="perfil.html">Perfil personal</a>
         <a href="formacion.html">Formación académica</a>
@@ -22,6 +47,7 @@
         <a href="contacto.html">Contacto</a>
 
         <h2>Menú de navegación interna</h2>
+        <!-- Cada enlace apunta al id de una de las secciones de abajo. -->
         <a href="#bootcamp">Bootcamp Ecosistema Llama para desarrollo de IA</a>
         <a href="#chambeadores">Herramientas y Habilidades para Jóvenes Chambeadores</a>
         <a href="#ciberseguridad">Propedéutico de Ciberseguridad</a>
@@ -32,103 +58,110 @@
         <a href="#rally">Participación en un Rally Latinoamericano</a>
     </nav>
 
-    <section class="tarjeta experiencia" id="bootcamp">
-        <h2>Bootcamp Ecosistema Llama para desarrollo de IA</h2>
-        <article>
-            <img src="img/Bootcamp.jpg" alt="Bootcamp Ecosistema Llama para desarrollo de IA" width="500"
-                align="center">
-            <p>Curso en el cual adquirí conocimientos respecto a la herramienta OLLAMA,
-                la cual permite correr distintos modelos de inteligencia artificial en la computadora local,
-                sin necesidad de internet. Implantado por CENTRO
-            </p>
-        </article>
-    </section>
+    <main>
+        <section class="tarjeta experiencia" id="bootcamp">
+            <h2>Bootcamp Ecosistema Llama para desarrollo de IA</h2>
+            <article>
+                <!-- loading="lazy" = carga perezosa: la imagen se descarga solo
+                     cuando está a punto de verse en pantalla. -->
+                <img src="img/Bootcamp.jpg" alt="Constancia del Bootcamp Ecosistema Llama para desarrollo de IA"
+                    width="500" loading="lazy">
+                <p>Curso en el cual adquirí conocimientos respecto a la herramienta OLLAMA,
+                    la cual permite correr distintos modelos de inteligencia artificial en la computadora local,
+                    sin necesidad de internet. Implantado por CENTRO
+                </p>
+            </article>
+        </section>
 
-    <section class="tarjeta experiencia" id="chambeadores">
-        <h2>Herramientas y Habilidades para Jóvenes Chambeadores</h2>
-        <article>
-            <img src="img/ConstanciaChambeadores.jpg" alt="Herramientas y Habilidades para Jóvenes Chambeadores"
-                width="800" align="center">
-            <p>Curso en el cual aprendí respecto a ciertas herramientas y habilidades que debemos aprender a usar y
-                desarrollar para poder tener éxito en el ámbito laboral, como lo son la comunicación, el trabajo en
-                equipo, la creatividad, la innovación, entre otras.
-            </p>
-        </article>
-    </section>
+        <section class="tarjeta experiencia" id="chambeadores">
+            <h2>Herramientas y Habilidades para Jóvenes Chambeadores</h2>
+            <article>
+                <img src="img/ConstanciaChambeadores.jpg" alt="Constancia de Herramientas y Habilidades para Jóvenes Chambeadores"
+                    width="800" loading="lazy">
+                <p>Curso en el cual aprendí respecto a ciertas herramientas y habilidades que debemos aprender a usar y
+                    desarrollar para poder tener éxito en el ámbito laboral, como lo son la comunicación, el trabajo en
+                    equipo, la creatividad, la innovación, entre otras.
+                </p>
+            </article>
+        </section>
 
-    <section class="tarjeta experiencia" id="ciberseguridad">
-        <h2>Propedéutico de Ciberseguridad</h2>
-        <article>
-            <img src="img/ConstanciaMooc.jpg" alt="Propedéutico de Ciberseguridad" width="800" align="center">
-            <p>Curso en el cual aprendí muchos de los fundamentos respecto a la ciberseguridad, métodos de ingeniería
-                inversa, niveles de "Hackers", comandos para Kali Linux, tipos de riesgos, etc. Las cuales son muy
-                importantes si te quieres especializar en ciberseguridad.
-            </p>
-        </article>
-    </section>
+        <section class="tarjeta experiencia" id="ciberseguridad">
+            <h2>Propedéutico de Ciberseguridad</h2>
+            <article>
+                <img src="img/ConstanciaMooc.jpg" alt="Constancia del Propedéutico de Ciberseguridad" width="800"
+                    loading="lazy">
+                <p>Curso en el cual aprendí muchos de los fundamentos respecto a la ciberseguridad, métodos de ingeniería
+                    inversa, niveles de "Hackers", comandos para Kali Linux, tipos de riesgos, etc. Las cuales son muy
+                    importantes si te quieres especializar en ciberseguridad.
+                </p>
+            </article>
+        </section>
 
-    <section class="tarjeta experiencia" id="ingles1">
-        <h2>Ingles Nivel 1</h2>
-        <article>
-            <img src="img/Inglés1.jpg" alt="Constancia Inglés Nivel 1" width="700" align="center">
-            <p>Curso en el cual aprendí las cosas básicas y necesarias para comenzar a aprender y a hablar el idioma
-                extranjero inglés,
-                desde el famoso verbo to be, tiempos verbales como el presente simple, verbos, vocabulario, etc. Muy
-                importante este
-                idioma para mi futuro laboral.
-            </p>
-        </article>
-    </section>
+        <section class="tarjeta experiencia" id="ingles1">
+            <h2>Ingles Nivel 1</h2>
+            <article>
+                <img src="img/Inglés1.jpg" alt="Constancia de Inglés Nivel 1" width="700" loading="lazy">
+                <p>Curso en el cual aprendí las cosas básicas y necesarias para comenzar a aprender y a hablar el idioma
+                    extranjero inglés,
+                    desde el famoso verbo to be, tiempos verbales como el presente simple, verbos, vocabulario, etc. Muy
+                    importante este
+                    idioma para mi futuro laboral.
+                </p>
+            </article>
+        </section>
 
-    <section class="tarjeta experiencia" id="ingles2">
-        <h2>Ingles Nivel 2</h2>
-        <article>
-            <img src="img/Inglés2.jpg" alt="Constancia Inglés Nivel 2" width="700" align="center">
-            <p>Curso en el cual perfeccioné lo visto el nivel anterior y profundicé más en el idioma. Por ejemplo,
-                aprendí nuevos tiempos
-                verbales como el presente perfecto y el futuro continuo, pedir en restaurantes, describir tanto personas
-                como lugares, etc.
-            </p>
-        </article>
-    </section>
+        <section class="tarjeta experiencia" id="ingles2">
+            <h2>Ingles Nivel 2</h2>
+            <article>
+                <img src="img/Inglés2.jpg" alt="Constancia de Inglés Nivel 2" width="700" loading="lazy">
+                <p>Curso en el cual perfeccioné lo visto el nivel anterior y profundicé más en el idioma. Por ejemplo,
+                    aprendí nuevos tiempos
+                    verbales como el presente perfecto y el futuro continuo, pedir en restaurantes, describir tanto personas
+                    como lugares, etc.
+                </p>
+            </article>
+        </section>
 
-    <section class="tarjeta experiencia" id="innovatec">
-        <h2>Participación en un Innovatec</h2>
-        <article>
-            <img src="img/Innovatec.jpg" alt="Participación en un Innovatec" width="500" align="center">
-            <p>Constancia que demuestra mi participación en el Innovatec pasado (siendo el primero en el que participo),
-                en el cual
-                colaboré junto compañeros de la carrera de Ingeniería Industrial, yo fuí quien desarrolló un prototipo
-                sobre una aplicación
-                que facilitaría el análisis de la ergonomía en una empresa, siendo la 1ra aplicación para México.
-            </p>
-        </article>
-    </section>
+        <section class="tarjeta experiencia" id="innovatec">
+            <h2>Participación en un Innovatec</h2>
+            <article>
+                <img src="img/Innovatec.jpg" alt="Constancia de participación en un Innovatec" width="500" loading="lazy">
+                <p>Constancia que demuestra mi participación en el Innovatec pasado (siendo el primero en el que participo),
+                    en el cual
+                    colaboré junto compañeros de la carrera de Ingeniería Industrial, yo fuí quien desarrolló un prototipo
+                    sobre una aplicación
+                    que facilitaría el análisis de la ergonomía en una empresa, siendo la 1ra aplicación para México.
+                </p>
+            </article>
+        </section>
 
-    <section class="tarjeta experiencia" id="IA">
-        <h2>Inicación al Desarrollo con IA</h2>
-        <article>
-            <img src="img/Mouredev.jpg" alt="Iniciación al Desarrollo con IA" width="600" align="center">
-            <p>Curso en el cual aprendí las cosas básicas que se deben de aplicar para poder utilizar de la mejor manera
-                la IA en la programación,
-                principalemente se observaron los agentes de IA, los cuales tienen acceso total a tu código y cuando le
-                pidas realizar cambios
-                tendrá mejor contexto sobre cómo funciona tu código. Aunque debes de utilizar muchas herramientas extras
-                para que los agentes
-                de IA sean muy efectivos.
-            </p>
-        </article>
-    </section>
+        <section class="tarjeta experiencia" id="IA">
+            <h2>Inicación al Desarrollo con IA</h2>
+            <article>
+                <img src="img/Mouredev.jpg" alt="Constancia de Iniciación al Desarrollo con IA" width="600" loading="lazy">
+                <p>Curso en el cual aprendí las cosas básicas que se deben de aplicar para poder utilizar de la mejor manera
+                    la IA en la programación,
+                    principalemente se observaron los agentes de IA, los cuales tienen acceso total a tu código y cuando le
+                    pidas realizar cambios
+                    tendrá mejor contexto sobre cómo funciona tu código. Aunque debes de utilizar muchas herramientas extras
+                    para que los agentes
+                    de IA sean muy efectivos.
+                </p>
+            </article>
+        </section>
 
-    <section class="tarjeta experiencia" id="rally">
-        <h2>Participación en un Rally Latinoamericano</h2>
-        <article>
-            <img src="img/Rally.jpg" alt="Participación en un Rally Latinoamericano" width="700" align="center">
-            <p>Certificado que demuestra mi particpación en el Rally Latinoamericano del año pasado.</p>
-        </article>
-    </section>
+        <section class="tarjeta experiencia" id="rally">
+            <h2>Participación en un Rally Latinoamericano</h2>
+            <article>
+                <img src="img/Rally.jpg" alt="Certificado de participación en un Rally Latinoamericano" width="700"
+                    loading="lazy">
+                <p>Certificado que demuestra mi particpación en el Rally Latinoamericano del año pasado.</p>
+            </article>
+        </section>
+    </main>
 
-    <footer class="nav btn">
+    <footer class="nav">
         <a href="#inicio">Volver al inicio</a>
     </footer>
 </body>
+</html>

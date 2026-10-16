@@ -1,17 +1,43 @@
+<!--
+  ============================================================================
+  ARCHIVO: contacto.html   →   Página "Contacto"
+  ============================================================================
+
+  Aquí aprendemos dos cosas nuevas:
+    1) style="..." → es CSS escrito directamente en la etiqueta (estilo "inline").
+    2) enlaces especiales como mailto:, tel: y https:// (explicados abajo).
+
+  MEJORAS aplicadas:
+     - El teléfono ahora es un enlace tel:, para que en el celular se pueda
+       llamar con un toque.
+     - El enlace a GitHub lleva rel="noopener": buena práctica de seguridad
+       cuando un enlace apunta a otro sitio.
+     - <main> para el contenido y menú con aria-label (sin la clase "btn").
+  ============================================================================
+-->
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+
+    <!-- MEJORA: resumen para buscadores. -->
+    <meta name="description" content="Datos de contacto de Rigoberto Benitez Aguilar: correo, ubicación, teléfono y GitHub.">
+    <meta name="author" content="Rigoberto Benitez Aguilar">
+
+    <title>Contacto | Curriculum de Rigoberto Benitez Aguilar</title>
+
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <header class="tarjeta contacto">
         <h1>Bienvenido a mi contacto de mi curriculum</h1>
     </header>
 
-    <nav class="nav btn">
+    <nav class="nav" aria-label="Menú de navegación del curriculum">
         <h2>Menú de navegación externa</h2>
         <a href="perfil.html">Perfil personal</a>
         <a href="formacion.html">Formación académica</a>
@@ -20,29 +46,45 @@
         <a href="index.html">Inicio</a>
     </nav>
 
-    <section class="tarjeta contacto" style="line-height: 1.5;">
-        <ul>
-            <li>
-                <strong>Correo electrónico:</strong> 
-                <a href="mailto:rigobertobeniteztours@gmail.com">rigobertobeniteztours@gmail.com</a>
-            </li>
-    
-            <li>
-                <strong>Ubicación:</strong> 
-                Ensenada, Baja California, México
-            </li>
+    <main>
+        <!-- El atributo style="line-height: 1.5;" es CSS escrito aquí mismo.
+             line-height controla el espacio entre líneas de texto: 1.5 = una vez y
+             media el tamaño de la letra. Es un estilo "inline" (en la propia etiqueta). -->
+        <section class="tarjeta contacto" style="line-height: 1.5;">
+            <!-- Lista de datos de contacto. -->
+            <ul>
+                <li>
+                    <!-- <strong> pone el texto en NEGRITA (para resaltar). -->
+                    <strong>Correo electrónico:</strong> 
+                    <!-- href="mailto:..." abre el programa de correo del visitante
+                         con un mensaje nuevo dirigido a esa dirección. -->
+                    <a href="mailto:rigobertobeniteztours@gmail.com">rigobertobeniteztours@gmail.com</a>
+                </li>
+        
+                <li>
+                    <strong>Ubicación:</strong> 
+                    Ensenada, Baja California, México
+                </li>
 
-            <li>
-                <strong>Teléfono:</strong> 
-                6161194515
-            </li>
-    
-            <li>
-                <strong>GitHub:</strong> 
-                <a href="https://github.com/BenitezAguilar">
-                https://github.com/BenitezAguilar
-                </a>
-            </li>
-        </ul>
-    </section>
+                <li>
+                    <strong>Teléfono:</strong> 
+                    <!-- MEJORA: tel: convierte el número en un enlace que, en el
+                         celular, abre la app de llamadas con el número ya puesto. -->
+                    <a href="tel:+526161194515">616 119 4515</a>
+                </li>
+        
+                <li>
+                    <strong>GitHub:</strong> 
+                    <!-- href="https://..." lleva a un sitio EXTERNO (fuera de este
+                         proyecto). Por eso empieza con https://
+                         MEJORA: target="_blank" lo abre en otra pestaña y
+                         rel="noopener" es una medida de seguridad recomendada. -->
+                    <a href="https://github.com/BenitezAguilar" target="_blank" rel="noopener">
+                    https://github.com/BenitezAguilar
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
 </body>
+</html>

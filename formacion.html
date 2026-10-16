@@ -1,10 +1,32 @@
+<!--
+  ============================================================================
+  ARCHIVO: formacion.html   →   Página "Formación académica" del curriculum
+  ============================================================================
+
+  Aquí se presenta la educación: secundaria, preparatoria y universidad.
+  Fíjate que cada etapa es una <section> distinta, y dentro de cada una hay
+  un <article> (una ficha que "se sostiene sola").
+
+  MEJORAS aplicadas: <main> para el contenido, <footer> fuera de <main>,
+  clase "btn" eliminada (no servía) y aria-label en el menú.
+  ============================================================================
+-->
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
+    <!-- Datos de la página que el navegador necesita (no se ven). -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formación Académica</title>
+
+    <!-- MEJORA: resumen para buscadores. -->
+    <meta name="description" content="Formación académica de Rigoberto Benitez Aguilar: secundaria, preparatoria y universidad.">
+    <meta name="author" content="Rigoberto Benitez Aguilar">
+
+    <title>Formación académica | Curriculum de Rigoberto Benitez Aguilar</title>
+
+    <!-- Mismo diseño para todo el sitio. -->
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -13,7 +35,7 @@
         <h1>Bienvenido a mi formación académica de mi curriculum</h1>
     </header>
 
-    <nav class="nav btn">
+    <nav class="nav" aria-label="Menú de navegación del curriculum">
         <h2>Menú de navegación externa</h2>
         <a href="perfil.html">Perfil personal</a>
         <a href="index.html">Inicio</a>
@@ -22,48 +44,57 @@
         <a href="contacto.html">Contacto</a>
 
         <h2>Menú de navegación interna</h2>
+        <!-- Tres enlaces internos: uno por cada etapa educativa (los id de abajo). -->
         <a href="#secundaria">Secundaria</a>
         <a href="#preparatoria">Preparatoria</a>
         <a href="#universidad">Universidad</a>
     </nav>
 
-    <section class="tarjeta formacion" id="secundaria">
-        <h2>Secundaria</h2>
-        <article>
-            <h3>Escuela Secundaria Técnica No. 7</h3>
-            <p>Periodo: 2018 - 2021</p>
-            <p>Ubicada en Isla de Cedros, Baja California, México. Cursé mis estudios
-                de secundaria en esta institución, donde adquirí una base sólida en diversas
-                materias y desarrollé habilidades fundamentales para mi educación futura.
-                Aunque mi carrera técnica fuera de Pescador.</p>
-        </article>
-    </section>
+    <!-- Contenido principal de la página. -->
+    <main>
+        <section class="tarjeta formacion" id="secundaria">
+            <h2>Secundaria</h2>
 
-    <section class="tarjeta formacion" id="preparatoria">
-        <h2>Preparatoria</h2>
-        <article>
-            <h3>Centro de Estudios Tecnológicos del Mar No. 11 Ext. Isla de Cedros</h3>
-            <p>Periodo: 2021 - 2024</p>
-            <p>Ubicado en Isla de Cedros, Baja California, México. Cursé mis estudios de preparatoria en esta
-                institución, donde profundicé en mis conocimientos y desarrollé habilidades clave para mi formación
-                académica y profesional. Cabe destacar que la carrera cursada durantes este periodo fue la de Técnico
-                en Administración de Recursos Humanos.</p>
-        </article>
-    </section>
+            <!-- <article> es un contenido que "se sostiene por sí solo" (como una
+                 noticia o una ficha). Aquí agrupa los datos de una etapa escolar. -->
+            <article>
+                <!-- <h3> es un subtítulo de menor nivel que <h2>. -->
+                <h3>Escuela Secundaria Técnica No. 7</h3>
+                <p>Periodo: 2018 - 2021</p>
+                <p>Ubicada en Isla de Cedros, Baja California, México. Cursé mis estudios
+                    de secundaria en esta institución, donde adquirí una base sólida en diversas
+                    materias y desarrollé habilidades fundamentales para mi educación futura.
+                    Aunque mi carrera técnica fuera de Pescador.</p>
+            </article>
+        </section>
 
-    <section class="tarjeta formacion" id="universidad">
-        <h2>Universidad</h2>
-        <article>
-            <h3>Instituto Tecnológico de Ensenada</h3>
-            <p>Periodo: 2024 - Actualidad</p>
-            <p>Ubicada en Ensenada, Baja California, México. Actualmente estoy cursando la carrera de Ingeniería
-                en Sistemas Computacionales en esta institución, donde estoy adquiriendo conocimientos avanzados
-                en el campo de la informática y desarrollando habilidades técnicas y profesionales que me preparan
-                para enfrentar los desafíos del mundo laboral.</p>
-        </article>
-    </section>
+        <section class="tarjeta formacion" id="preparatoria">
+            <h2>Preparatoria</h2>
+            <article>
+                <h3>Centro de Estudios Tecnológicos del Mar No. 11 Ext. Isla de Cedros</h3>
+                <p>Periodo: 2021 - 2024</p>
+                <p>Ubicado en Isla de Cedros, Baja California, México. Cursé mis estudios de preparatoria en esta
+                    institución, donde profundicé en mis conocimientos y desarrollé habilidades clave para mi formación
+                    académica y profesional. Cabe destacar que la carrera cursada durantes este periodo fue la de Técnico
+                    en Administración de Recursos Humanos.</p>
+            </article>
+        </section>
 
-    <footer class="nav btn">
+        <section class="tarjeta formacion" id="universidad">
+            <h2>Universidad</h2>
+            <article>
+                <h3>Instituto Tecnológico de Ensenada</h3>
+                <p>Periodo: 2024 - Actualidad</p>
+                <p>Ubicada en Ensenada, Baja California, México. Actualmente estoy cursando la carrera de Ingeniería
+                    en Sistemas Computacionales en esta institución, donde estoy adquiriendo conocimientos avanzados
+                    en el campo de la informática y desarrollando habilidades técnicas y profesionales que me preparan
+                    para enfrentar los desafíos del mundo laboral.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="nav">
         <a href="#inicio">Volver al inicio</a>
     </footer>
 </body>
+</html>

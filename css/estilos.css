@@ -1,14 +1,80 @@
+/* ============================================================================
+   ARCHIVO: css/estilos.css   →   La hoja de estilos (el DISEÑO)
+   ============================================================================
+
+   Los archivos HTML dicen QUÉ hay (texto, listas, imágenes...).
+   Este archivo dice CÓMO se ve (colores, tamaños, espacios...).
+
+   CÓMO SE ESCRIBE CSS:
+       selector {
+           propiedad: valor;
+       }
+
+   - El "selector" apunta a qué elementos del HTML queremos pintar.
+     Ejemplos:  body  (todo el cuerpo),  .nav  (clase "nav"),  #inicio (id).
+   - "propiedad" es lo que cambia (color, tamaño...).
+   - "valor" es cuánto cambia.
+   - Cada línea termina en punto y coma ( ; ).
+
+   TRES FORMAS DE SELECCIONAR (muy importante):
+     p        → TODAS las etiquetas <p>
+     .tarjeta → TODOS los elementos con class="tarjeta"
+     #inicio  → EL elemento con id="inicio" (los id son únicos)
+
+   Los comentarios en CSS se abren con una barra seguida de un asterisco, y se
+   cierran con un asterisco seguido de una barra: justo el bloque que estás
+   leyendo ahora mismo es un comentario.
+   ============================================================================ */
+
+
+/* =========================
+   MEJORA: VARIABLES DE COLOR
+   =========================
+
+   ":root" representa el elemento raíz (toda la página). Aquí guardamos los
+   colores en "variables" para NO repetirlos por todos lados.
+   Se usan después con  var(--nombre).
+
+   Ventaja: si mañana quieres cambiar el azul del sitio, lo cambias UNA sola
+   vez aquí y se actualiza en TODAS las reglas. */
+:root {
+    --fondo: #f4f6f8;          /* gris muy claro del fondo */
+    --texto: #1f2937;          /* color normal del texto */
+    --titulo: #111827;         /* color de los títulos */
+    --gris: #4b5563;           /* gris medio (subtítulos del menú) */
+    --gris-2: #374151;         /* gris oscuro (h3) */
+    --azul: #2563eb;           /* azul principal (enlaces) */
+    --azul-oscuro: #1d4ed8;    /* azul más oscuro (al pasar el ratón) */
+    --oscuro: #1f2937;         /* fondo de los botones del menú */
+    --oscuro-2: #111827;       /* fondo de los botones al pasar el ratón */
+    --blanco: #ffffff;         /* blanco de las tarjetas */
+    --borde: #e5e7eb;          /* gris clarito de los bordes */
+    --radio: 10px;             /* redondeo de las esquinas */
+    --sombra: 0 2px 6px rgba(0, 0, 0, 0.06); /* sombra suave */
+}
+
+
 /* =========================
    ESTILOS GENERALES
    ========================= */
+
+/* "*" significa "TODOS los elementos". Aquí le decimos que su ancho incluya
+   el relleno y el borde, así los tamaños son más fáciles de calcular. */
 * {
     box-sizing: border-box;
 }
 
+/* MEJORA: cuando haces clic en un enlace interno (href="#algo"), la página
+   baja "suavemente" en vez de saltar de golpe. */
+html {
+    scroll-behavior: smooth;
+}
+
+/* "body" es el cuerpo entero de la página (todo lo visible). */
 body {
-    margin: 0;
-    padding: 20px;
-    font-family:
+    margin: 0;                 /* quita el espacio blanco que el navegador pone por defecto */
+    padding: 20px;             /* espacio interior: separa el contenido del borde de la ventana */
+    font-family:               /* lista de fuentes; el navegador usa la primera que tenga disponible */
         system-ui,
         -apple-system,
         Segoe UI,
@@ -16,94 +82,125 @@ body {
         Helvetica,
         Arial,
         sans-serif;
-    background-color: #f4f6f8;
-    color: #1f2937;
-    line-height: 1.6;
+    background-color: var(--fondo);
+    color: var(--texto);
+    line-height: 1.6;          /* espacio entre líneas: 1.6 = una vez y media cómoda para leer */
 }
 
+/* "a" = todos los enlaces. */
 a {
-    color: #2563eb;
-    text-decoration: none;
+    color: var(--azul);
+    text-decoration: none;     /* quita el subrayado que traen por defecto */
 }
 
+/* ":hover" = cuando el ratón pasa por encima. Aquí sí subrayamos el enlace. */
 a:hover {
     text-decoration: underline;
 }
 
+/* MEJORA (accesibilidad): ":focus-visible" marca el enlace cuando el usuario
+   navega con el TECLADO (tecla Tab). Un recuadro azul indica dónde está.
+   Es importante para personas que no usan el ratón. */
+a:focus-visible {
+    outline: 3px solid var(--azul);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+
 /* =========================
    HEADER / TÍTULO
    ========================= */
+
+/* Combinar "header.tarjeta" = solo el <header> que tenga class="tarjeta". */
 header.tarjeta {
-    text-align: center;
-    padding: 24px 16px;
-    margin-bottom: 20px;
+    text-align: center;        /* centra el texto */
+    padding: 24px 16px;        /* 24px arriba/abajo, 16px izquierda/derecha */
+    margin-bottom: 20px;       /* espacio de separación con lo de abajo */
 }
 
+/* Otro selector combinado: el <h1> que está DENTRO de un header.tarjeta. */
 header.tarjeta h1 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #111827;
+    margin: 0;                 /* quita el margen que los títulos traen por defecto */
+    font-size: 1.5rem;         /* tamaño de letra; "rem" = tamaño base del navegador (≈16px) */
+    color: var(--titulo);
 }
+
 
 /* =========================
-   NAVEGACIÓN
+   NAVEGACIÓN (el menú)
    ========================= */
+
+/* ".nav" = cualquier elemento con class="nav". */
 .nav {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: flex;             /* activa las "cajas flexibles": alinea los hijos fácilmente */
+    flex-direction: column;    /* los coloca uno debajo del otro (en columna) */
+    gap: 10px;                 /* espacio uniforme entre los elementos */
     margin-bottom: 24px;
     text-align: center;
 }
 
 .nav h2 {
-    margin: 12px 0 6px 0;
+    margin: 12px 0 6px 0;      /* arriba, derecha, abajo, izquierda */
     font-size: 1rem;
-    color: #4b5563;
-    border-bottom: 1px solid #e5e7eb;
+    color: var(--gris);
+    border-bottom: 1px solid var(--borde); /* línea fina por debajo */
     padding-bottom: 4px;
 }
 
+/* ".nav a" = enlaces dentro de .nav (nótese el espacio). */
 .nav a {
-    display: inline-block;
+    display: inline-block;     /* permite darle padding y ancho como si fuera un bloque */
     padding: 8px 16px;
-    background-color: #1f2937;
-    color: #ffffff;
-    border-radius: 6px;
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    border-radius: 6px;        /* esquinas redondeadas */
     font-size: 0.95rem;
     margin: 2px 4px;
+    /* MEJORA: "transition" hace que el cambio de color sea suave, no brusco. */
+    transition: background-color 0.2s ease;
 }
 
+/* Cuando pasas el ratón por un enlace del menú, se oscurece más. */
 .nav a:hover {
-    background-color: #111827;
+    background-color: var(--oscuro-2);
     text-decoration: none;
 }
+
+/* Foco por teclado también en los botones del menú. */
+.nav a:focus-visible {
+    outline: 3px solid var(--azul);
+    outline-offset: 2px;
+}
+
 
 /* =========================
    TARJETAS / SECCIONES
    ========================= */
+
+/* ".tarjeta" da el aspecto de "tarjeta blanca" a cabeceras y secciones. */
 .tarjeta {
-    background-color: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
     padding: 20px;
-    margin: 0 auto 20px auto;
-    max-width: 800px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    margin: 0 auto 20px auto;  /* "auto" a los lados = centrado horizontalmente */
+    max-width: 800px;          /* no deja que crezca más de 800px (se ve mejor) */
+    box-shadow: var(--sombra);
 }
 
 .tarjeta h2 {
     margin-top: 0;
     font-size: 1.25rem;
-    color: #111827;
-    border-bottom: 2px solid #2563eb;
+    color: var(--titulo);
+    border-bottom: 2px solid var(--azul); /* línea azul bajo el subtítulo */
     padding-bottom: 8px;
 }
 
 .tarjeta h3 {
     margin: 12px 0 6px 0;
     font-size: 1.1rem;
-    color: #374151;
+    color: var(--gris-2);
 }
 
 .tarjeta p {
@@ -112,7 +209,7 @@ header.tarjeta h1 {
 }
 
 .tarjeta ul {
-    padding-left: 20px;
+    padding-left: 20px;        /* espacio a la izquierda para que se vean las viñetas */
     margin: 8px 0;
 }
 
@@ -121,40 +218,54 @@ header.tarjeta h1 {
     font-size: 1rem;
 }
 
+
 /* =========================
    IMÁGENES
    ========================= */
+
+/* Controla el tamaño de las imágenes dentro de las tarjetas.
+   MEJORA: aquí (y no en el HTML) se centran las imágenes. Antes se usaba el
+   atributo align="center", que está obsoleto; ahora se hace con CSS. */
 .tarjeta img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 12px auto;
+    max-width: 100%;           /* la imagen nunca será más ancha que su contenedor */
+    height: auto;              /* la altura se ajusta sola para no deformarla */
+    display: block;            /* permite centrarla con "margin: ... auto" */
+    margin: 12px auto;         /* centrada horizontalmente */
     border-radius: 6px;
 }
 
+
 /* =========================
-   FOOTER
+   FOOTER (pie de página)
    ========================= */
+
 footer.nav {
     margin-top: 30px;
-    border-top: 1px solid #e5e7eb;
+    border-top: 1px solid var(--borde); /* línea separadora arriba */
     padding-top: 16px;
 }
 
+/* En el pie, los enlaces son azules en vez de oscuros. */
 footer.nav a {
-    background-color: #2563eb;
+    background-color: var(--azul);
 }
 
 footer.nav a:hover {
-    background-color: #1d4ed8;
+    background-color: var(--azul-oscuro);
 }
 
+
 /* =========================
-   RESPONSIVIDAD
-   ========================= */
+   RESPONSIVIDAD (para celulares)
+   =========================
+
+   Esto es un "media query": solo se aplica cuando la pantalla mide
+   600 píxeles o menos (o sea, en teléfonos y tablets pequeñas).
+   Dentro se ajustan tamaños para que todo se vea bien en pantallas chicas. */
+
 @media (max-width: 600px) {
     body {
-        padding: 12px;
+        padding: 12px;         /* menos espacio cuando hay poco ancho */
     }
 
     .tarjeta {
@@ -163,7 +274,7 @@ footer.nav a:hover {
     }
 
     header.tarjeta h1 {
-        font-size: 1.25rem;
+        font-size: 1.25rem;    /* títulos más pequeños en el celular */
     }
 
     .nav h2 {

@@ -1,17 +1,44 @@
+<!--
+  ============================================================================
+  ARCHIVO: habilidades.html   →   Página "Habilidades"
+  ============================================================================
+
+  Aquí presentamos listas. En HTML una lista con viñetas se hace con:
+        <ul>                      →  "unordered list" (lista sin orden)
+            <li> elemento 1 </li> →  "list item" (cada elemento)
+            <li> elemento 2 </li>
+        </ul>
+
+  MEJORAS aplicadas:
+     - En "Desarrollo Web" había una <section> metida dentro de otra <section>
+       (raro y sin sentido). Ahora queda igual que las demás: solo la <ul>.
+     - <main> para el contenido y <footer> fuera de <main>.
+     - Menú con aria-label y sin la clase "btn".
+  ============================================================================
+-->
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habilidades</title>
+
+    <!-- MEJORA: resumen para buscadores. -->
+    <meta name="description" content="Habilidades de Rigoberto Benitez Aguilar: lenguajes de programación, herramientas, bases de datos, desarrollo web e idiomas.">
+    <meta name="author" content="Rigoberto Benitez Aguilar">
+
+    <title>Habilidades | Curriculum de Rigoberto Benitez Aguilar</title>
+
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <header class="tarjeta habilidades" id="inicio">
         <h1>Bienvenido a mis habilidades de mi curriculum</h1>
     </header>
 
-    <nav class="nav btn">
+    <nav class="nav" aria-label="Menú de navegación del curriculum">
         <h2>Menú de navegación externa</h2>
         <a href="perfil.html">Perfil personal</a>
         <a href="formacion.html">Formación académica</a>
@@ -25,76 +52,83 @@
         <a href="#bd">Bases de Datos</a>
         <a href="#web">Desarrollo Web</a>
         <a href="#idiomas">Idiomas</a>
-        <a href="#habilidades">Habilidades Personales</a>
+        <a href="#personales">Habilidades Personales</a>
     </nav>
 
-    <section class="tarjeta habilidades" id="lenguajes">
-        <h2>Lenguajes de Programación</h2>
-        <article>
-            <ul>
-                <li>Java</li>
-                <li>C</li>
-                <li>Python</li>
-                <li>C#</li>
-            </ul>
-        </article>
-    </section>
+    <main>
+        <section class="tarjeta habilidades" id="lenguajes">
+            <h2>Lenguajes de Programación</h2>
+            <article>
+                <!-- <ul> crea la lista con viñetas; cada <li> es un elemento. -->
+                <ul>
+                    <li>Java</li>
+                    <li>C</li>
+                    <li>Python</li>
+                    <li>C#</li>
+                </ul>
+            </article>
+        </section>
 
-    <section class="tarjeta habilidades" id="herramientas">
-        <h2>Herramientas de Software</h2>
-        <article>
-            <ul> 
-                <li>Git / GitHub</li>
-                <li>Visual Studio Code</li>
-                <li>Visual Studio</li>
-                <li>Docker</li>
-                <li>Virtual Box</li>
-            </ul>
-        </article>
-    </section>
+        <section class="tarjeta habilidades" id="herramientas">
+            <h2>Herramientas de Software</h2>
+            <article>
+                <ul>
+                    <li>Git / GitHub</li>
+                    <li>Visual Studio Code</li>
+                    <li>Visual Studio</li>
+                    <li>Docker</li>
+                    <li>Virtual Box</li>
+                </ul>
+            </article>
+        </section>
 
-    <section class="tarjeta habilidades" id="bd">
-        <h2>Bases de Datos</h2>
-        <article>
-            <ul>
-                <li>SQL / MariaDB</li>
-            </ul>
-        </article>
-    </section>
+        <section class="tarjeta habilidades" id="bd">
+            <h2>Bases de Datos</h2>
+            <article>
+                <ul>
+                    <li>SQL / MariaDB</li>
+                </ul>
+            </article>
+        </section>
 
-    <section class="tarjeta habilidades" id="web">
-        <h2>Desarrollo Web</h2>
-        <section>
+        <section class="tarjeta habilidades" id="web">
+            <h2>Desarrollo Web</h2>
+            <!-- Antes aquí había una <section> de más; la quitamos para que quede
+                 igual que el resto (el <ul> directamente dentro de la <section>). -->
             <ul>
                 <li>HTML5</li>
                 <li>CSS3</li>
             </ul>
         </section>
-    </section>
 
-    <section class="tarjeta habilidades" id="idiomas">
-        <h2>Idiomas</h2>
-        <article>
-            <ul>
-                <li>Español (Nativo)S</li>
-                <li>Inglés (Intermedio - B2)</li>
-            </ul>
-        </article>
-    </section>
+        <section class="tarjeta habilidades" id="idiomas">
+            <h2>Idiomas</h2>
+            <article>
+                <ul>
+                    <li>Español (Nativo)</li>
+                    <li>Inglés (Intermedio - B2)</li>
+                </ul>
+            </article>
+        </section>
 
-    <section class="tarjeta habilidades" id="habilidades">
-        <h2>Habilidades Personales</h2>
-        <article>
-            <ul>
-                <li>Trabajo en equipo.</li>
-                <li>Pensamiento crítico-lógico.</li>
-                <li>Liderazgo.</li>
-                <li>Resolución de problemas.</li>
-            </ul>
-        </article>
-    </section>
+        <!-- MEJORA: este id antes era "habilidades", igual que la clase de la
+             página. Lo cambiamos a "personales" para que sea más claro y no se
+             confunda con el nombre de la clase. -->
+        <section class="tarjeta habilidades" id="personales">
+            <h2>Habilidades Personales</h2>
+            <article>
+                <ul>
+                    <li>Trabajo en equipo.</li>
+                    <li>Pensamiento crítico-lógico.</li>
+                    <li>Liderazgo.</li>
+                    <li>Resolución de problemas.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
 
-    <footer class="nav btn">
-            <a href="#inicio">Volver al inicio</a>
-        </footer>
+    <footer class="nav">
+        <a href="#inicio">Volver al inicio</a>
+    </footer>
 </body>
+</html>
