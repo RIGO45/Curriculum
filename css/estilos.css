@@ -1,68 +1,181 @@
+/* =========================
+   ESTILOS GENERALES
+   ========================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    margin: 20px;
-    background-color: rgb(190, 190, 190);
+    margin: 0;
+    padding: 20px;
+    font-family:
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2937;
+    line-height: 1.6;
 }
 
-.tarjeta {
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   HEADER / TÍTULO
+   ========================= */
+header.tarjeta {
     text-align: center;
-    background-color: black;
-    color: white;
-    margin: 15px auto;
-    padding: 10px 20px;
-    width: fit-content;
+    padding: 24px 16px;
+    margin-bottom: 20px;
 }
 
-.tarjeta img {
-    max-width: 100%;
-    min-width: 200px;
-    height: auto;
+header.tarjeta h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #111827;
 }
 
-.tarjeta p {
-    font-size: 18px;
-    line-height: 1.5;
+/* =========================
+   NAVEGACIÓN
+   ========================= */
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 24px;
+    text-align: center;
 }
 
-.tarjeta li {
-    text-align: left;
-    font-size: 18px;
-}
-
-.contacto {
-    border: 10px solid green;
-}
-
-.inicio {
-    border: 10px solid orange;
-}
-
-.perfil {
-    border: 10px solid yellow;
-}
-
-.formacion {
-    border: 10px solid blue;
-}
-
-.experiencia {
-    border: 10px solid red;
-}
-
-.habilidades {
-    border: 10px solid cyan;
+.nav h2 {
+    margin: 12px 0 6px 0;
+    font-size: 1rem;
+    color: #4b5563;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 4px;
 }
 
 .nav a {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #000000;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 5px;
-    border: 5px solid navy;
+    padding: 8px 16px;
+    background-color: #1f2937;
+    color: #ffffff;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    margin: 2px 4px;
 }
 
-.btn {
-    text-align: center;
+.nav a:hover {
+    background-color: #111827;
+    text-decoration: none;
+}
+
+/* =========================
+   TARJETAS / SECCIONES
+   ========================= */
+.tarjeta {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto 20px auto;
+    max-width: 800px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.tarjeta h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    color: #111827;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 8px;
+}
+
+.tarjeta h3 {
+    margin: 12px 0 6px 0;
+    font-size: 1.1rem;
+    color: #374151;
+}
+
+.tarjeta p {
+    font-size: 1rem;
+    margin: 8px 0;
+}
+
+.tarjeta ul {
+    padding-left: 20px;
+    margin: 8px 0;
+}
+
+.tarjeta li {
+    margin: 4px 0;
+    font-size: 1rem;
+}
+
+/* =========================
+   IMÁGENES
+   ========================= */
+.tarjeta img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 12px auto;
+    border-radius: 6px;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer.nav {
+    margin-top: 30px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 16px;
+}
+
+footer.nav a {
+    background-color: #2563eb;
+}
+
+footer.nav a:hover {
+    background-color: #1d4ed8;
+}
+
+/* =========================
+   RESPONSIVIDAD
+   ========================= */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .tarjeta {
+        padding: 16px;
+        margin: 0 auto 16px auto;
+    }
+
+    header.tarjeta h1 {
+        font-size: 1.25rem;
+    }
+
+    .nav h2 {
+        font-size: 0.9rem;
+    }
+
+    .nav a {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+
+    .tarjeta h2 {
+        font-size: 1.1rem;
+    }
 }
